@@ -3,8 +3,8 @@ pipeline {
 
     stages {
         stage('Build Docker') {
-                sh "whoami"
             steps {
+                sh "whoami"
                 script {
                     def dockerfile = docker.build("react")
                 }
