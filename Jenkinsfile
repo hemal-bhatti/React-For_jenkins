@@ -12,9 +12,9 @@ pipeline {
         }
         stage('Docker Run') {
             steps {
-                    sh "echo ============================="
-                    sh "echo ${dockerfile}"
-                    sh "echo ============================="
+                    // sh "echo ============================="
+                    // sh "echo ${dockerfile}"
+                    // sh "echo ============================="
                 script {
                     docker.image("react").run("-d -p 8585:80")
                 }
