@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Build Docker') {
             steps {
-                echo 'Building..'
+                sh "docker build -t react ."
             }
         }
-        stage('Test') {
+        stage('Docker Run') {
             steps {
-                echo 'Testing..'
+                sh "docker run -d -p 8585:80 react"
             }
         }
         stage('Deploy') {
