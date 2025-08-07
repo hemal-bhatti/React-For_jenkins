@@ -3,8 +3,8 @@ pipeline {
 
     stages {
         stage('Build Docker') {
-            steps {
                 sh "whoami"
+            steps {
                 script {
                     def dockerfile = docker.build("react")
                 }
@@ -12,11 +12,11 @@ pipeline {
         }
         stage('Docker Run') {
             steps {
-                script {
                     sh "echo ============================="
                     sh "echo ${dockerfile}"
-                    docker.image("react").run("-d -p 8585:80")
                     sh "echo ============================="
+                script {
+                    docker.image("react").run("-d -p 8585:80")
                 }
             }
         }
