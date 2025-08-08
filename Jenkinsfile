@@ -7,6 +7,7 @@ pipeline {
         stage('Build Docker') {
             steps {
                 sh "whoami"
+                sh "cd /home/ubuntu/workspace/react-project"
                 script {
                     def dockerfile = docker.build("react")
                 }
