@@ -8,7 +8,7 @@ pipeline {
             steps {
                 sh "whoami"
                 sh "cd /home/ubuntu/workspace/react-project"
-                sh "sudo docker build -t react ."
+                sh "sudo docker build -t webhook ."
             }
         }
         stage('Docker Run') {
@@ -16,7 +16,7 @@ pipeline {
                     // sh "echo ============================="
                     // sh "echo ${dockerfile}"
                     // sh "echo ============================="
-                    sh "sudo docker run -d -p 8585:80 react"
+                    sh "sudo docker run -d -p 8585:80 webhook"
                 // script {
                 //     docker.image("react").run("-d -p 8585:80")
                 // }
