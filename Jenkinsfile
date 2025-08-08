@@ -8,9 +8,7 @@ pipeline {
             steps {
                 sh "whoami"
                 sh "cd /home/ubuntu/workspace/react-project"
-                script {
-                    def dockerfile = docker.build("react")
-                }
+                sh "sudo docker build -t react ."
             }
         }
         stage('Docker Run') {
@@ -18,9 +16,10 @@ pipeline {
                     // sh "echo ============================="
                     // sh "echo ${dockerfile}"
                     // sh "echo ============================="
-                script {
-                    docker.image("react").run("-d -p 8585:80")
-                }
+                    sh "sudo docker run -d -p 8585:80 react"
+                // script {
+                //     docker.image("react").run("-d -p 8585:80")
+                // }
             }
         }
     }
