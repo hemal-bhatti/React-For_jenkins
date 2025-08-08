@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent "react"
 
     stages {
         stage('Build Docker') {
@@ -23,6 +23,7 @@ pipeline {
     }
 }
 
+// ED25519
 
 // pipeline {
 //     agent any
