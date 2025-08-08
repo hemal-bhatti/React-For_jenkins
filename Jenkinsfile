@@ -1,5 +1,7 @@
 pipeline {
-    agent "react"
+    agent {
+        label 'react'
+    }
 
     stages {
         stage('Build Docker') {
